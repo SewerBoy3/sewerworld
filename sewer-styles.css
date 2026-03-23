@@ -1,0 +1,323 @@
+:root {
+    /* Fondo Azul Noche suave (muy relajante para la vista) */
+    --bg-main: #1a1b26;     
+    --bg-card: #24283b;     
+    --text-light: #a9b1d6;  
+    --text-dark: #1a1b26;   
+    
+    /* Colores Vivos pero Tranquilos (Pasteles saturados) */
+    --c-mint: #73daca;     /* Verde agua / Menta */
+    --c-peach: #ff9e64;    /* Naranja durazno suave */
+    --c-lavender: #bb9af7; /* Lavanda brillante */
+    
+    --border-thick: 4px solid var(--text-light);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+/* -- Ticker (Cinta de texto desplazable) -- */
+.ticker-wrap {
+    width: 100%;
+    background-color: var(--c-mint);
+    color: var(--text-dark);
+    border-bottom: var(--border-thick);
+    overflow: hidden;
+    padding: 5px 0;
+    white-space: nowrap;
+    position: relative;
+    z-index: 100;
+}
+.ticker-move {
+    display: inline-block;
+    animation: ticker 20s linear infinite;
+}
+.ticker-item {
+    font-size: 24px;
+    padding: 0 40px;
+    font-weight: bold;
+}
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* -- Layout Principal -- */
+.layout-grid {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* -- Cabecera y Bio -- */
+.header-card {
+    grid-column: 1 / -1;
+    background-color: var(--c-mint);
+    color: var(--text-dark);
+    border: var(--border-thick);
+    box-shadow: 8px 8px 0 var(--text-light);
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.header-card:hover { transform: translate(-2px, -2px); box-shadow: 12px 12px 0 var(--text-light); }
+
+.studio-name { font-size: 80px; line-height: 0.8; letter-spacing: -2px; text-shadow: 4px 4px 0 var(--text-light); color: var(--text-dark); }
+
+.dev-badge {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    background: var(--bg-card);
+    color: var(--text-light);
+    padding: 20px;
+    border: 4px solid var(--text-dark);
+}
+.avatar-box {
+    width: 80px; height: 80px;
+    background: var(--text-light);
+    color: var(--text-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: bold;
+    border: 4px solid var(--text-dark);
+}
+.dev-info h2 { font-size: 28px; color: var(--c-mint); margin-bottom: 5px; border-bottom: 2px dashed var(--text-light); padding-bottom: 5px;}
+.role { font-size: 20px; color: var(--c-peach); margin-bottom: 10px; }
+.bio { font-size: 20px; color: #c0caf5; }
+
+/* -- Títulos de Sección -- */
+.section-title-box { margin-bottom: 30px; border-bottom: 4px dashed var(--text-light); padding-bottom: 10px; }
+.section-title-box h2 { font-size: 32px; color: var(--text-light); }
+
+/* -- Tarjetas de Proyectos -- */
+.projects-grid { display: flex; flex-direction: column; gap: 40px; }
+
+.project-card {
+    background: var(--bg-card);
+    border: var(--border-thick);
+    transition: all 0.2s;
+}
+.project-card:hover { transform: translate(-2px, -2px); }
+.border-peach:hover { box-shadow: 8px 8px 0 var(--c-peach); }
+.border-lavender:hover { box-shadow: 8px 8px 0 var(--c-lavender); }
+
+.card-header {
+    display: flex; justify-content: space-between;
+    padding: 10px 20px; color: var(--text-dark); font-weight: bold; font-size: 20px; border-bottom: var(--border-thick);
+}
+.bg-peach { background: var(--c-peach); }
+.bg-lavender { background: var(--c-lavender); }
+
+.card-image {
+    height: 250px; background: #000;
+    display: flex; align-items: center; justify-content: center;
+    color: #555; border-bottom: var(--border-thick);
+}
+
+.card-body { padding: 30px; }
+.card-body h3 { font-size: 36px; margin-bottom: 15px; color: var(--text-light); }
+.card-body p { margin-bottom: 25px; font-size: 22px; color: #c0caf5; }
+
+/* -- Botones de Acción -- */
+.action-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-light);
+    text-decoration: none;
+    border: 4px solid var(--text-light);
+    box-shadow: 4px 4px 0 var(--text-light);
+    transition: 0.1s;
+    cursor: pointer;
+    background: var(--bg-card);
+}
+
+.action-btn:hover { color: var(--text-dark); }
+.btn-peach:hover { background: var(--c-peach); box-shadow: 4px 4px 0 var(--c-peach); border-color: var(--c-peach); }
+.btn-lavender:hover { background: var(--c-lavender); box-shadow: 4px 4px 0 var(--c-lavender); border-color: var(--c-lavender); }
+.btn-mint { width: 100%; text-align: center; }
+.btn-mint:hover { background: var(--c-mint); box-shadow: 4px 4px 0 var(--c-mint); border-color: var(--c-mint); }
+
+.action-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 transparent !important; }
+
+/* -- Sidebar (Enlaces y Ko-Fi) -- */
+.sidebar { display: flex; flex-direction: column; gap: 40px; }
+
+.links-card { background: var(--bg-card); border: var(--border-thick); padding: 30px; box-shadow: 6px 6px 0 var(--text-light); }
+.links-card h2 { font-size: 28px; margin-bottom: 20px; color: var(--c-lavender); border-bottom: 2px dashed var(--text-light); padding-bottom: 10px; }
+
+.social-nav { display: flex; flex-direction: column; gap: 15px; }
+.social-link {
+    display: block; padding: 15px;
+    background: var(--bg-main); border: 2px solid var(--text-light);
+    color: var(--text-light); text-decoration: none; font-size: 24px;
+    transition: 0.2s;
+}
+.social-link:hover { background: var(--text-light); color: var(--text-dark); }
+.link-prefix { color: var(--c-peach); margin-right: 10px; font-weight: bold; }
+
+.kofi-card { background: var(--bg-card); border: var(--border-thick); transition: 0.2s; }
+.kofi-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--c-mint); }
+.kofi-card h2 { padding: 15px 20px; color: var(--text-dark); font-size: 24px; border-bottom: var(--border-thick); }
+.bg-mint { background: var(--c-mint); }
+.kofi-body { padding: 30px; }
+.kofi-body p { margin-bottom: 25px; font-size: 20px; color: #c0caf5; }
+
+/* -- Responsivo -- */
+@media (max-width: 900px) {
+    .layout-grid { grid-template-columns: 1fr; }
+    .studio-name { font-size: 60px; }
+    .dev-badge { flex-direction: column; text-align: center; align-items: center; }
+}
+
+/* -- Navegación Principal -- */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-card);
+    padding: 15px 40px;
+    border-bottom: var(--border-thick);
+    box-shadow: 0 4px 0 var(--text-dark);
+    position: relative;
+    z-index: 90;
+}
+
+/* -- Logo del Navbar Llamativo -- */
+.nav-brand {
+    font-size: 42px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    /* Sombra 3D retro usando tu paleta */
+    text-shadow: 3px 3px 0 var(--c-mint), 6px 6px 0 var(--c-lavender);
+    transition: transform 0.2s, text-shadow 0.2s;
+}
+
+.nav-brand:hover {
+    transform: translate(-2px, -2px);
+    color: #fff;
+    /* Al pasar el mouse, la sombra se expande y cambia a durazno */
+    text-shadow: 5px 5px 0 var(--c-mint), 10px 10px 0 var(--c-peach);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 24px;
+    padding: 5px 10px;
+    transition: 0.2s;
+    border: 2px solid transparent;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-dark);
+    background-color: var(--c-peach);
+    border: 2px solid var(--text-dark);
+    box-shadow: 4px 4px 0 var(--text-dark);
+    transform: translate(-2px, -2px);
+}
+
+/* -- Artículos de Bitácora -- */
+.devlog-list { display: flex; flex-direction: column; gap: 30px; }
+.log-entry {
+    background: var(--bg-main);
+    border: 2px dashed var(--c-lavender);
+    padding: 25px;
+    transition: 0.2s;
+}
+.log-entry:hover { border-style: solid; box-shadow: 8px 8px 0 var(--c-lavender); transform: translate(-2px, -2px); }
+.log-date { color: var(--c-mint); font-size: 18px; margin-bottom: 10px; display: block; }
+.log-entry h3 { font-size: 28px; color: var(--text-light); margin-bottom: 15px; }
+.log-entry p { color: #c0caf5; font-size: 20px; }
+
+@media (max-width: 768px) {
+    .main-nav { flex-direction: column; gap: 20px; padding: 20px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ========================================= */
+/* ADAPTACIÓN PARA DISPOSITIVOS (RESPONSIVE) */
+/* ========================================= */
+
+@media (max-width: 1024px) {
+    /* En tablets, la columna de la derecha se achica un poco */
+    .layout-grid { grid-template-columns: 1.5fr 1fr; gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    /* En celulares, todo pasa a 1 sola columna hacia abajo */
+    .layout-grid { 
+        grid-template-columns: 1fr; 
+        margin: 20px auto;
+    }
+    
+    /* El menú principal se apila */
+    .main-nav { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 15px; 
+        text-align: center;
+    }
+    
+    .nav-links { 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 10px;
+    }
+    
+    .nav-brand { font-size: 36px; }
+
+    /* Cabecera del estudio (Sewer World gigante) */
+    .header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .studio-name { font-size: 50px; }
+    
+    .dev-badge {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    /* Textos generales un poco más chicos para no desbordar */
+    .action-btn { font-size: 18px; padding: 10px 15px; }
+    .card-body h3 { font-size: 28px; }
+    .card-body p { font-size: 18px; }
+    
+    /* El Ticker */
+    .ticker-item { font-size: 18px; padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+    /* Para pantallas súper chicas (celulares viejos) */
+    .nav-links a { font-size: 18px; padding: 5px; }
+    .studio-name { font-size: 40px; }
+    .avatar-box { width: 60px; height: 60px; font-size: 24px; }
+}
