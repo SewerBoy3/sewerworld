@@ -10,8 +10,8 @@ Este repositorio contiene el código fuente del hub web de **SEWER WORLD**. No h
 
 ## ⚙️ [ ESPECIFICACIONES DEL SISTEMA ]
 
-* **Operario:** sewer boy
-* **Motor Principal (Juegos):** Godot Engine 4.x
+* **Operario:** Sewer Boy
+* **Motor Principal (Juegos):** Godot Engine 4.6.1
 * **Stack Web:** HTML5, CSS3 (Variables, CSS Grid/Flexbox), Vanilla JS.
 * **Paleta Visual:** Lo-Fi Chill (Azul Noche, Menta, Durazno, Lavanda).
 * **Tipografía:** VT323 (Google Fonts).
